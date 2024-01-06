@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo - Home</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="./index.html">Home</a></li>
+            <li class="logout-link"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1>Welcome to the Zoo!</h1>
+    <button id="toggle-form-button" onclick="toggleAnimalForm()">Add New Animal</button>
+    <form id="animal-form" style="display: none;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" required>
+
+        <label for="average_age">Average Age:</label>
+        <input type="number" id="average_age" name="average_age" required>
+
+        <button type="button" onclick="createAnimal()">Add Animal</button>
+    </form>
+
+    <h2>Animal List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Average Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="animals-table">
+            <!-- Animal data will be displayed here -->
+        </tbody>
+    </table>
+
+    <!-- Edit Animal Form (Initially hidden) -->
+<div id="edit-animal-container" style="display: none;">
+    <h2>Edit Animal</h2>
+    <form id="edit-animal-form" >
+        <input type="hidden" id="edit-animal-id" name="id">
+        
+        <label for="edit-animal-name">Name:</label>
+        <input type="text" id="edit-animal-name" name="name" required>
+        
+        <label for="edit-animal-species">Species:</label>
+        <input type="text" id="edit-animal-species" name="species" required>
+        
+        <label for="edit-animal-average_age">Average Age:</label>
+        <input type="number" id="edit-animal-average_age" name="average_age" required>
+        
+        <button type="button" onclick="updateAnimal()">Update Animal</button>
+    </form>
+</div>
+</body>
+
+</html>
